@@ -8,7 +8,9 @@ class CatmanGame extends Game {
 
   var dimensions: Dimension = null
   
-  lazy val cat = new Cat(dimensions)
+  lazy val field = new Field(dimensions)
+  lazy val cat = new Cat(dimensions, field)
+  lazy val dog = new Dog(dimensions, field, cat)
   
   def title = "Catman"
   
@@ -16,12 +18,15 @@ class CatmanGame extends Game {
     graphics.setColor(Color.black)
     graphics.fillRect(0, 0, dimensions.width, dimensions.height)
     graphics.setColor(Color.white)
-    graphics.drawString(title, 10, 20)
+    graphics.drawString(title + ", Burgers eaten: " + cat.eaten, 20, 30)
     cat.draw(graphics)
+    dog.draw(graphics)
+    field.draw(graphics)
   }
   
   def update {
     cat.move
+    dog.move
   }
   
   def setDimensions(dimensions: Dimension) {
