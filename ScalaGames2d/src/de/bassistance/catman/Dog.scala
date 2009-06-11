@@ -7,6 +7,8 @@ class Dog(val dimensions: Dimension, field: Field, cat: Cat) extends Movable(100
 
   speed = 0.1
   
+  var ateCat = false
+  
   def size = 15
   
   def acceleration = 1.05
@@ -19,6 +21,7 @@ class Dog(val dimensions: Dimension, field: Field, cat: Cat) extends Movable(100
     
 	if (distanceToCat < size/2) {
 		speed = 0
+		ateCat = true
 		return
 	}
 	update

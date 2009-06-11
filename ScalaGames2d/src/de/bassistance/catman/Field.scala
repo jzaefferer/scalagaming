@@ -22,6 +22,8 @@ class Field(val dimensions: Dimension) {
     })
   }
   
+  def burgersLeft = burgers.exists(_.visible)
+  
   def checkObstacles(movable: Movable) {
     obstructions.foreach((rec: Rectangle) => {
     	if (rec.intersects(movable.boundingbox)) {
