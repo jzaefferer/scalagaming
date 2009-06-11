@@ -14,23 +14,18 @@ class Field(val dimensions: Dimension) {
                           new Rectangle(550, 400, 50, 150),
                           new Rectangle(800, 600, 200, 200))
 
-  def check(cat: Cat) {
+  def checkBurgers(cat: Cat) {
     burgers.filter(_.visible).foreach((burger: Burger) => {
     	if (burger.intersects(cat.boundingbox)) {
     	  cat.eat(burger)
     	}
     })
-    obstructions.foreach((rec: Rectangle) => {
-    	if (rec.intersects(cat.boundingbox)) {
-    	  cat.pushBack(rec)
-    	}
-    })
   }
   
-  def check(dog: Dog) {
+  def checkObstacles(movable: Movable) {
     obstructions.foreach((rec: Rectangle) => {
-    	if (rec.intersects(dog.boundingbox)) {
-    	  dog.pushBack(rec)
+    	if (rec.intersects(movable.boundingbox)) {
+    	  movable.pushBack(rec)
     	}
     })
   }
