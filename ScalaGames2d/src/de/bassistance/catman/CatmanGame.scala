@@ -10,7 +10,7 @@ class CatmanGame extends Game {
   
   lazy val cat = new Cat(dimensions)
   
-  def title = "Pacman"
+  def title = "Catman"
   
   def render(graphics: Graphics) {
     graphics.setColor(Color.black)
