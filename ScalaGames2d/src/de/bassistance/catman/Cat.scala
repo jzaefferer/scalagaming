@@ -44,5 +44,10 @@ class Cat(val dimensions: Dimension, val field: Field) extends Movable(100, 100)
 	eaten += 1
 	burger.eat
   }
+  
+  override def reset {
+    super.reset
+    eaten = 0
+  }
  
 }

@@ -41,4 +41,8 @@ class Field(val dimensions: Dimension) {
     })
   }
   
+  def reset {
+    burgers.foreach(_.visible = true)
+  }
+  
 }

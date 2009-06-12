@@ -28,6 +28,12 @@ class Dog(val dimensions: Dimension, field: Field, cat: Cat) extends Movable(100
   
 	field.checkObstacles(this)
   }  
+  
+  override def reset {
+    super.reset
+    speed = 0.1
+    ateCat = false
+  }
 
   def draw(graphics: Graphics) {
     graphics.fillOval(x, y, size, size)

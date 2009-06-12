@@ -30,6 +30,12 @@ abstract class Movable(val startX: Int, val startY: Int) {
 	}
   }
   
+  def reset {
+    current.x = startX
+    current.y = startY
+    speed = 0
+  }
+  
   def update {
     speed *= acceleration
 	speed = Math.min(maxSpeed, speed)

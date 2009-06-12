@@ -45,6 +45,13 @@ class CatmanGame extends Game {
   }
   
   def click(at: (Int, Int)) {
+    if (gameOver) {
+      cat.reset
+      dog.reset
+      field.reset
+      gameOver = false
+      return
+    }
     cat.moveTo(at)
   }
   
