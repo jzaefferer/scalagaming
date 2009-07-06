@@ -1,16 +1,19 @@
 package de.bassistance.catman
 
-import java.awt.{Dimension, Graphics, Rectangle}
+import java.awt.{Dimension, Graphics2D, Rectangle}
 import java.awt.geom.Point2D.{Double => Point}
+import javax.imageio.ImageIO
 
 class Cat(val dimensions: Dimension, val field: Field) extends Movable(100, 100) {
   
   var eaten = 0
   
-  def size = 12
+  def size = 32
+  
+  val img = ImageIO.read(getClass().getResource("cat.jpg"))
 
-  def draw(graphics: Graphics) {
-    graphics.drawOval(x, y, size, size)
+  def draw(graphics: Graphics2D) {
+    graphics.drawImage(img, x, y, null)
   }
   
   var previous = current

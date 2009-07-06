@@ -1,6 +1,6 @@
 package de.bassistance.wormchase
 
-import java.awt.{Rectangle, Graphics, Color, Point}
+import java.awt.{Rectangle, Graphics2D, Color, Point}
 
 class Obstacles {
   
@@ -20,7 +20,7 @@ class Obstacles {
   
   def size = boxes.size
   
-  def draw(dgb: Graphics) {
+  def draw(dgb: Graphics2D) {
     dgb.setColor(Color.blue)
     for (box <- boxes) {
       dgb.fillRect( box.x, box.y, box.width, box.height)

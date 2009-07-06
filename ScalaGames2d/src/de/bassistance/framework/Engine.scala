@@ -1,7 +1,7 @@
 package de.bassistance.framework
 
 import javax.swing.JFrame
-import java.awt.{Color, Toolkit, GraphicsEnvironment, GraphicsDevice}
+import java.awt.{Color, Toolkit, GraphicsEnvironment, GraphicsDevice, Graphics2D}
 import java.awt.event.{WindowEvent, KeyAdapter, KeyEvent, MouseAdapter, MouseEvent}
 import java.awt.image.BufferStrategy
 
@@ -141,7 +141,7 @@ class Engine(val speed: Int, val game: Game) extends JFrame {
    }
   
    def paintScreen {
-	  var graphics = bStrategy.getDrawGraphics
+	  var graphics = bStrategy.getDrawGraphics.asInstanceOf[Graphics2D]
 	  game.render(graphics)
 	  graphics.dispose
 	  if(!bStrategy.contentsLost) {

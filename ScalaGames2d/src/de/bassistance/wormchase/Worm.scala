@@ -1,6 +1,6 @@
 package de.bassistance.wormchase
 
-import java.awt.{Graphics, Point, Color, Dimension}
+import java.awt.{Graphics2D, Point, Color, Dimension}
 
 class Worm(val dimensions: Dimension, val obstacles: Obstacles) {
   
@@ -125,7 +125,7 @@ class Worm(val dimensions: Dimension, val obstacles: Obstacles) {
     return turn
   }
   
-  def draw(dgb: Graphics) {
+  def draw(dgb: Graphics2D) {
     if (points == 0)
       return
         

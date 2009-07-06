@@ -1,6 +1,6 @@
 package de.bassistance.catman
 
-import java.awt.{Color, Graphics, Dimension}
+import java.awt.{Color, Graphics2D, Dimension}
 
 import de.bassistance.framework.Game
 
@@ -17,7 +17,7 @@ class CatmanGame extends Game {
   
   def title = "Catman"
   
-  def render(graphics: Graphics) {
+  def render(graphics: Graphics2D) {
     graphics.setColor(Color.black)
     graphics.fillRect(0, 0, dimensions.width, dimensions.height)
     graphics.setColor(Color.white)

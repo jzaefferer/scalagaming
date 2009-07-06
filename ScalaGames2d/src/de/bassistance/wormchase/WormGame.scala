@@ -1,7 +1,7 @@
 package de.bassistance.wormchase
 
 import de.bassistance.framework.Game
-import java.awt.{Color, Graphics, Dimension}
+import java.awt.{Color, Graphics2D, Dimension}
 import scala.collection.immutable.TreeSet
 
 class WormGame extends Game {
@@ -40,7 +40,7 @@ class WormGame extends Game {
     }
   }
   
-  def gameOverMessage(dgb: Graphics) {
+  def gameOverMessage(dgb: Graphics2D) {
     dgb.setColor(Color.black)
     val score = 100 - obstacles.size
     highscores = highscores + score
@@ -58,7 +58,7 @@ class WormGame extends Game {
     }
   }
   
-  def render(dgb: Graphics) {
+  def render(dgb: Graphics2D) {
     dgb.setColor(Color.white)
     dgb.fillRect(0, 0, dimensions.width, dimensions.height)
     dgb.setColor(Color.black)

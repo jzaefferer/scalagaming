@@ -1,7 +1,10 @@
 package de.bassistance.catman
 
-import java.awt.{Dimension, Graphics, Rectangle}
+import java.awt.{Dimension, Graphics2D, Rectangle, RenderingHints}
+import java.awt.geom.AffineTransform
 import java.awt.geom.Point2D.{Double => Point}
+import java.awt.image.AffineTransformOp
+import javax.imageio.ImageIO
 
 class Dog(val dimensions: Dimension, field: Field, cat: Cat) extends Movable(1000, 800) {
 
@@ -34,8 +37,11 @@ class Dog(val dimensions: Dimension, field: Field, cat: Cat) extends Movable(100
     speed = 0.1
     ateCat = false
   }
+  
+  val img = ImageIO.read(getClass().getResource("dog.jpg"))
 
-  def draw(graphics: Graphics) {
-    graphics.fillOval(x, y, size, size)
+  def draw(graphics: Graphics2D) {
+    // crappy, rotates arround 0,0 instead of the center
+    graphics.drawImage(img, new AffineTransformOp(AffineTransform.getRotateInstance(angle), AffineTransformOp.TYPE_BICUBIC), x, y)
   }
 }
