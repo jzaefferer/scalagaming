@@ -8,9 +8,9 @@ class Cat(val dimensions: Dimension, val field: Field) extends Movable(100, 100)
   
   var eaten = 0
   
-  def size = 32
+  def size = 48
   
-  val img = ImageIO.read(getClass().getResource("cat.jpg"))
+  val img = ImageIO.read(getClass().getResource("cat.gif"))
 
   def draw(graphics: Graphics2D) {
     graphics.drawImage(img, x, y, null)

@@ -1,6 +1,7 @@
 package de.bassistance.catman
 
-import java.awt.{Rectangle, Graphics, Dimension}
+import java.awt.{Rectangle, Graphics2D, Dimension}
+import javax.imageio.ImageIO
 
 class Field(val dimensions: Dimension) {
   
@@ -32,9 +33,11 @@ class Field(val dimensions: Dimension) {
     })
   }
   
-  def draw(graphics: Graphics) {
+  val burgerImage = ImageIO.read(getClass().getResource("cheeseburger.gif"))
+  
+  def draw(graphics: Graphics2D) {
     burgers.filter(_.visible).foreach((rec: Rectangle) => {
-    	graphics.fillOval(rec.x, rec.y, rec.width, rec.height)
+    	graphics.drawImage(burgerImage, rec.x, rec.y, null)
     })
     obstructions.foreach((rec: Rectangle) => {
     	graphics.drawRect(rec.x, rec.y, rec.width, rec.height)

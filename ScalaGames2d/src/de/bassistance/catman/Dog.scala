@@ -12,7 +12,7 @@ class Dog(val dimensions: Dimension, field: Field, cat: Cat) extends Movable(100
   
   var ateCat = false
   
-  def size = 15
+  def size = 48
   
   def acceleration = 1.05
   def maxSpeed = 2
@@ -38,10 +38,11 @@ class Dog(val dimensions: Dimension, field: Field, cat: Cat) extends Movable(100
     ateCat = false
   }
   
-  val img = ImageIO.read(getClass().getResource("dog.jpg"))
+  val img = ImageIO.read(getClass().getResource("dog.png"))
 
   def draw(graphics: Graphics2D) {
     // crappy, rotates arround 0,0 instead of the center
-    graphics.drawImage(img, new AffineTransformOp(AffineTransform.getRotateInstance(angle), AffineTransformOp.TYPE_BICUBIC), x, y)
+    //graphics.drawImage(img, new AffineTransformOp(AffineTransform.getRotateInstance(angle), AffineTransformOp.TYPE_BICUBIC), x, y)
+    graphics.drawImage(img, x, y, null)
   }
 }
