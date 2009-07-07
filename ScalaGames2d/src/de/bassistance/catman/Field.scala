@@ -12,8 +12,8 @@ class Field(val dimensions: Dimension) {
                           new Rectangle(800, 600, 200, 200))
 
   def checkBurgers(cat: Cat) {
-    burgers.filter(_.visible).foreach((burger: Burger) => {
-    	if (burger.intersects(cat.boundingbox)) {
+    burgers.foreach((burger: Burger) => {
+    	if (burger.visible && burger.intersects(cat.boundingbox)) {
     	  cat.eat(burger)
     	}
     })
