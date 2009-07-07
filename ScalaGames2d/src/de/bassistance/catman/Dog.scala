@@ -41,8 +41,8 @@ class Dog(val dimensions: Dimension, field: Field, cat: Cat) extends Movable(100
   val img = ImageIO.read(getClass().getResource("dog.png"))
 
   def draw(graphics: Graphics2D) {
-    // crappy, rotates arround 0,0 instead of the center
-    //graphics.drawImage(img, new AffineTransformOp(AffineTransform.getRotateInstance(angle), AffineTransformOp.TYPE_BICUBIC), x, y)
-    graphics.drawImage(img, x, y, null)
+    val rotate = new AffineTransform()
+    rotate.rotate(angle, size/2, size/2)
+    graphics.drawImage(img, new AffineTransformOp(rotate, AffineTransformOp.TYPE_BICUBIC), x, y)
   }
 }
