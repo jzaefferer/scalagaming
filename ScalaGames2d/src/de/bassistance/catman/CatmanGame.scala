@@ -2,15 +2,20 @@ package de.bassistance.catman
 
 import java.awt.{Color, Graphics2D, Dimension}
 
-import de.bassistance.framework.Game
+import de.bassistance.framework.{Game, Sounds}
 
 class CatmanGame extends Game {
 
   var dimensions: Dimension = null
   
+  val sounds = new Sounds
+  sounds.play("dog", getClass().getResourceAsStream("dog.mp3"))
+  
   lazy val field = new Field(dimensions)
   lazy val cat = new Cat(dimensions, field)
   lazy val dog = new Dog(dimensions, field, cat)
+  
+  
   
   @volatile
   var gameOver = false
@@ -37,6 +42,7 @@ class CatmanGame extends Game {
     dog.move
     if (!field.burgersLeft || dog.ateCat) {
       gameOver = true
+      sounds.stop("dog")
     }
   }
   
@@ -50,6 +56,7 @@ class CatmanGame extends Game {
       dog.reset
       field.reset
       gameOver = false
+      sounds.play("dog", getClass().getResourceAsStream("dog.mp3"))
       return
     }
     cat.moveTo(at)
